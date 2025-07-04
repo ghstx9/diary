@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-serif: 'Georgia', serif;
+    --font-mono: 'Courier New', monospace;
+}
+
+.lexend-font {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-display {
+    font-family: "Lexend", sans-serif;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.diary-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.diary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #f3f4f6 0%, #d1d5db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
