@@ -1,0 +1,252 @@
+---
+import Layout from '~/layouts/layout.astro';
+import Header from '~/components/header.astro';
+import Footer from '~/components/footer.astro';
+
+const entry = {
+    date: "4 July 2025",
+    title: "A Weird Friday",
+    readTime: "2 min read",
+    color: "green" as const,
+    slug: "a-weird-friday"
+};
+---
+
+<Layout title="thefuckisthis" description="diary number one.">
+    <Header currentPage="entries" />
+    
+    <main class="pt-20 min-h-screen bg-black">
+        <!-- entry header -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <!-- back button -->
+                <div class="mb-8">
+                    <a href="/entries" class="inline-flex items-center text-gray-400 hover:text-white transition-colors group">
+                        <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                        </svg>
+                        Back to Entries
+                    </a>
+                </div>
+                
+                <!-- entry meta -->
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center gap-4 text-gray-400 text-sm mb-6">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            {entry.date}
+                        </span>
+                        <span>•</span>
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            {entry.readTime}
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 gradient-text">
+                        {entry.title}
+                    </h1>
+                    
+                    <!-- color indicator -->
+                    <div class="flex justify-center mb-8">
+                        <div class={`w-3 h-3 rounded-full ${entry.color === 'green' ? 'bg-green-500' : entry.color === 'blue' ? 'bg-blue-500' : 'bg-purple-500'}`}></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- entry content -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-gray-300 leading-relaxed space-y-6">
+                        <p class="text-xl text-gray-200 font-light italic border-l-4 border-green-500 pl-6 py-2 bg-green-500/5">
+                            Today is Friday, so as a Muslim I went to the mosque to pray with my friends. After prayer we went to lunch and we went back to our homes, went home and just chilled for the rest of the day.
+                        </p>
+                        
+                        <p>
+                            But something felt off today. This is one of those weird days when something just feels off for me, but even then I played it cool. 
+                        </p>
+                        
+                        <p>
+                            I mean who doesn't love a good old Islamic sabbath? In the morning I went for breakfast with my friends, did a prayer and then ate lunch on a McDonalds. But then out of nowhere I started to think about her again, and I can't get her out of my mind for the rest of the day.
+                        </p>
+                        
+                        <p>
+                            I changed since that first date, or since I got too attached to her. But I don't think having your heart broken by someone means you feel a weird vibe every single day.
+                        </p>
+                        
+                        <p>
+                            I've been heartbroken before, this is not my first breakup. I've broken up before, this is not my first heartbreak. But why does this one hits me so hard? I can't tell if it's either the regret of hurting her or the fact that I lost someone who I've had a crush on for years.
+                        </p>
+                        
+                        <p>
+                            We're not even together and I'm still thinking about the delusional future I wish I could have with her. I'm not even together and I'm still thinking about the delusional future I wish I could have with her.
+                        </p>
+                        
+                        <p>
+                            And why do I act like this is the only instance of my day being weird? Ever since I stopped talking to her, my life immediately becomes weird. She's probably talking to another guy or became someone's girlfriend already, and yet I'm here making diaries on how fucked up my life is like a nerd.
+                        </p>
+                        
+                        <p>
+                            Maybe it's the semester break messing with my head. Maybe it's the fact I loved her too much to the point I wish I never met her. I used to laugh at my friends for being heartbrokens, but now when I experienced my own I don't know what to do.
+                        </p>
+                        
+                        <p>
+                            As I write this, it's midnight raining in the city and I can't play it cool anymore. This whole diary project that you're seeing right now? I've completed the entire layout design in just an hour and it's all fueled by the motivation of wanting to move on.
+                        </p>
+                        
+                        <p class="text-gray-400 italic border-l-4 border-gray-600 pl-6 py-2 bg-gray-600/5">
+                            I was the one who rekindled the flame, and I'm the one who broke it. I wish that I hadn't done either.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- navigation -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-white font-bold text-lg mb-2">Previous Entry</h3>
+                        <a href="/entries/midnight-thoughts" class="text-blue-400 hover:text-blue-300 transition-colors">
+                            Midnight Thoughts
+                        </a>
+                        <p class="text-gray-400 text-sm mt-1">30 June 2025</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="/entries" class="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors border border-gray-700">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-4-4m4 4l-4 4"></path>
+                            </svg>
+                            All Entries
+                        </a>
+                    </div>
+                    
+                    <div class="text-center md:text-right opacity-50">
+                        <h3 class="text-white font-bold text-lg mb-2">Next Entry</h3>
+                        <span class="text-gray-500">No newer entries</span>
+                        <p class="text-gray-500 text-sm mt-1">—</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- related entries -->
+        <section class="py-16 bg-gradient-to-b from-black to-gray-900">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-display font-bold text-white mb-8 text-center">
+                    More from the diary
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- related entry 1 -->
+                    <a href="/entries/midnight-thoughts" class="group block">
+                        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-200 group-hover:transform group-hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-400 text-sm">30 June 2025</span>
+                            </div>
+                            <h3 class="text-white font-bold text-lg mb-2 group-hover:text-blue-400 transition-colors">
+                                Midnight Thoughts
+                            </h3>
+                            <p class="text-gray-400 text-sm">
+                                Today marks the first day of our semester break, didn't really do anything because I just wanted to rest...
+                            </p>
+                        </div>
+                    </a>
+                    
+                    <!-- related entry 2 -->
+                    <a href="/entries/first-date" class="group block">
+                        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-200 group-hover:transform group-hover:scale-105">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                                <span class="text-gray-400 text-sm">12 May 2025</span>
+                            </div>
+                            <h3 class="text-white font-bold text-lg mb-2 group-hover:text-purple-400 transition-colors">
+                                First Date
+                            </h3>
+                            <p class="text-gray-400 text-sm">
+                                Went to a date with this girl that I've always liked. Decided to rekindle the old flame we had...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <Footer />
+</Layout>
+
+<style>
+    .prose {
+        color: #D1D5DB;
+    }
+    
+    .prose p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+    }
+    
+    .prose p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+
+<script>
+    // smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    });
+    
+    // reading progress indicator
+    function addReadingProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'fixed top-0 left-0 h-1 bg-green-500 z-50 transition-all duration-150';
+        progressBar.style.width = '0%';
+        document.body.appendChild(progressBar);
+        
+        function updateProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight;
+            const winHeight = window.innerHeight;
+            const scrollPercent = scrollTop / (docHeight - winHeight);
+            const scrollPercentRounded = Math.round(scrollPercent * 100);
+            
+            progressBar.style.width = scrollPercentRounded + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
+    }
+    
+    // initialize reading progress
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', addReadingProgress);
+    } else {
+        addReadingProgress();
+    }
+</script>
