@@ -1,0 +1,61 @@
+---
+import DiaryCard from './diarycard.astro';
+
+// hardcoded, too lazy to make an api
+const recentEntries = [
+    {
+        date: "4 July 2025",
+        title: "A Day of Weirds",
+        excerpt: "Today is Friday, so as a Muslim I went to the mosque to pray with my friends. After prayer we went to lunch and we went back to our homes, went home...",
+        readTime: "5 min read",
+        color: "green" as const,
+        slug: "a-day-of-weirds"
+    },
+    {
+        date: "30 June 2025",
+        title: "Midnight Thoughts",
+        excerpt: "Today marks the first day of our semester break, didn't really do anything because I just wanted to rest. She hasn't responded to my message yet, it has been a day or two...",
+        readTime: "3 min read",
+        color: "blue" as const,
+        slug: "midnight-thoughts"
+    },
+    {
+        date: "12 May 2025",
+        title: "First Date",
+        excerpt: "Went to a date with this girl that I've always liked. Decided to rekindle the old flame we had, she said she's not ready for a relationship but...",
+        readTime: "7 min read",
+        color: "purple" as const,
+        slug: "first-date"
+    }
+];
+---
+
+<section id="entries" class="py-20 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-display font-bold mb-4 gradient-text">recent entries</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                latest entries to the diaries (might update or won't, i can't promise)
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {recentEntries.map((entry) => (
+                <DiaryCard 
+                    date={entry.date}
+                    title={entry.title}
+                    excerpt={entry.excerpt}
+                    readTime={entry.readTime}
+                    color={entry.color}
+                    slug={entry.slug}
+                />
+            ))}
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="/entries" class="bg-gray-800 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-700 transition-all duration-200 border border-gray-600">
+                view all entries
+            </a>
+        </div>
+    </div>
+</section>

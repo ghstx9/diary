@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/layout.astro';
+import Header from '../components/header.astro';
+import DiaryCard from '../components/diarycard.astro';
+import Footer from '../components/footer.astro';
+
+const allEntries = [
+    {
+        date: "4 July 2025",
+        title: "A Day of Weirds",
+        excerpt: "Today is Friday, so as a Muslim I went to the mosque to pray with my friends. After prayer we went to lunch and we went back to our homes, went home...",
+        readTime: "5 min read",
+        color: "green" as const,
+        slug: "a-day-of-weirds"
+    },
+    {
+        date: "30 June 2025",
+        title: "Midnight Thoughts",
+        excerpt: "Today marks the first day of our semester break, didn't really do anything because I just wanted to rest. She hasn't responded to my message yet, it has been a day or two...",
+        readTime: "3 min read",
+        color: "blue" as const,
+        slug: "midnight-thoughts"
+    },
+    {
+        date: "12 May 2025",
+        title: "First Date",
+        excerpt: "Went to a date with this girl that I've always liked. Decided to rekindle the old flame we had, she said she's not ready for a relationship but...",
+        readTime: "7 min read",
+        color: "purple" as const,
+        slug: "first-date"
+    },
+    // new entries are on top because idk how to make logic to sort them by date
+];
+---
+
+<Layout title="thefuckisthis" description="Browse all diary entries from Ricky's personal diary">
+    <Header currentPage="entries" />
+    
+    <main class="pt-20 min-h-screen bg-black">
+        <!-- hero -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-8">
+                    <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 gradient-text">
+                        a full list of all the entries.
+                    </h1>
+                    <p class="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+                        every heart-to-heart or rant related to my life.
+                    </p>
+                </div>
+                
+                <!-- stats part -->
+                <div class="flex flex-wrap justify-center gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-2">{allEntries.length}</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-wider">Overall Entries</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- search bar -->
+        <section class="py-12 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
+                    <!-- search bar -->
+                    <div class="relative max-w-md mx-auto">
+                        <input 
+                            type="text" 
+                            placeholder="search..." 
+                            class="w-full bg-gray-800 text-white px-4 py-3 rounded-xl border border-gray-700 focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500/20 transition-all"
+                        >
+                        <svg class="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- entries grid -->
+        <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+            <div class="container mx-auto px-6">
+                {allEntries.length > 0 ? (
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {allEntries.map((entry) => (
+                            <DiaryCard 
+                                date={entry.date}
+                                title={entry.title}
+                                excerpt={entry.excerpt}
+                                readTime={entry.readTime}
+                                color={entry.color}
+                                slug={entry.slug}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <!-- empty state -->
+                    <div class="text-center py-24">
+                        <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-8">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white mb-4">No entries yet</h3>
+                        <p class="text-gray-400 text-lg max-w-md mx-auto mb-8">
+                            The diary is empty for now. Check back later when I've had some thoughts worth sharing.
+                        </p>
+                        <a href="/" class="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors border border-gray-700">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                            </svg>
+                            Back to Home
+                        </a>
+                    </div>
+                )}
+                
+                
+                {allEntries.length > 0 && (
+                    <div class="text-center mt-16">
+                        <button class="bg-gray-800 text-white px-8 py-4 rounded-xl font-medium hover:bg-gray-700 transition-all duration-200 border border-gray-700 transform hover:scale-105">
+                            load more entries
+                        </button>
+                    </div>
+                )}
+            </div>
+        </section>
+    </main>
+    
+    <Footer />
+</Layout>
+
+<script>
+    interface Entry {
+        element: HTMLElement;
+        title: string;
+        excerpt: string;
+        date: string;
+        slug: string;
+    }
+
+    function getAllEntries(): Entry[] {
+        const entryCards = document.querySelectorAll('[data-entry]');
+        return Array.from(entryCards).map(card => {
+            return {
+                element: card as HTMLElement,
+                title: card.querySelector('h3')?.textContent?.toLowerCase() || '',
+                excerpt: card.querySelector('p')?.textContent?.toLowerCase() || '',
+                date: card.querySelector('[data-date]')?.textContent?.toLowerCase() || '',
+                slug: card.getAttribute('data-slug') || ''
+            };
+        });
+    }
+
+    function performSearch(query: string) {
+        const entries = getAllEntries();
+        const searchTerm = query.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+            entries.forEach(entry => {
+                entry.element.style.display = 'block';
+                entry.element.classList.remove('search-hidden');
+            });
+            updateSearchResults(entries.length, entries.length);
+            return;
+        }
+        
+        let visibleCount = 0;
+        
+        entries.forEach(entry => {
+            const matches = 
+                entry.title.includes(searchTerm) ||
+                entry.excerpt.includes(searchTerm) ||
+                entry.date.includes(searchTerm);
+                
+            if (matches) {
+                entry.element.style.display = 'block';
+                entry.element.classList.remove('search-hidden');
+                visibleCount++;
+            } else {
+                entry.element.style.display = 'none';
+                entry.element.classList.add('search-hidden');
+            }
+        });
+        
+        updateSearchResults(visibleCount, entries.length);
+    }
+
+    function updateSearchResults(visible: number, total: number) {
+        let resultsDiv = document.querySelector('.search-results');
+        
+        if (!resultsDiv) {
+            resultsDiv = document.createElement('div');
+            resultsDiv.className = 'search-results text-center text-gray-400 text-sm mt-4';
+            const searchSection = document.querySelector('.py-12.bg-black');
+            if (searchSection) {
+                searchSection.appendChild(resultsDiv);
+            }
+        }
+        
+        if (visible === total) {
+            resultsDiv.textContent = '';
+        } else if (visible === 0) {
+            resultsDiv.textContent = 'No entries found.';
+        } else {
+            resultsDiv.textContent = `Showing ${visible} of ${total} entries`;
+        }
+    }
+
+    function highlightSearchTerms(text: string, searchTerm: string) {
+        if (!searchTerm) return text;
+        
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        return text.replace(regex, '<mark class="bg-yellow-400 text-black px-1 rounded">$1</mark>');
+    }
+
+    function initializeSearch() {
+        const searchInput = document.querySelector('input[type="text"]');
+        
+        if (searchInput) {
+            // debouncing for better performance
+            let searchTimeout: NodeJS.Timeout;
+            
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    performSearch((e.target as HTMLInputElement).value);
+                }, 300); // 300ms delay
+            });
+            
+            // cls on esc
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    (searchInput as HTMLInputElement).value = '';
+                    performSearch('');
+                }
+            });
+        }
+    }
+    
+    function initializeFilters() {
+        const filterButtons = document.querySelectorAll('button');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const buttonText = (e.target as HTMLElement).textContent;
+                
+                if (buttonText && ['All', 'Recent', 'Popular'].includes(buttonText)) {
+                    
+                    filterButtons.forEach(btn => {
+                        if (['All', 'Recent', 'Popular'].includes(btn.textContent || '')) {
+                            btn.classList.remove('bg-white', 'text-black');
+                            btn.classList.add('bg-gray-800', 'text-white', 'border', 'border-gray-700');
+                        }
+                    });
+                    
+                    (e.target as HTMLElement).classList.remove('bg-gray-800', 'text-white', 'border', 'border-gray-700');
+                    (e.target as HTMLElement).classList.add('bg-white', 'text-black');
+                    
+                    
+                    applyFilter(buttonText);
+                }
+            });
+        });
+    }
+
+    
+    function applyFilter(filterType: string) {
+        const entries = getAllEntries();
+        
+        switch (filterType) {
+            case 'All':
+                entries.forEach(entry => {
+                    entry.element.style.display = 'block';
+                });
+                break;
+                
+            case 'Recent':
+                
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                
+                entries.forEach(entry => {
+                    const entryDate = new Date(entry.date);
+                    if (entryDate >= thirtyDaysAgo) {
+                        entry.element.style.display = 'block';
+                    } else {
+                        entry.element.style.display = 'none';
+                    }
+                });
+                break;
+                
+            case 'Popular':
+                
+                entries.forEach(entry => {
+                    entry.element.style.display = 'block';
+                });
+                break;
+        }
+        
+        
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            (searchInput as HTMLInputElement).value = '';
+        }
+    }
+
+    // smooth anim
+    function addSearchAnimations() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .search-hidden {
+                opacity: 0;
+                transform: scale(0.95);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .search-results {
+                animation: fadeIn 0.3s ease;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            mark {
+                animation: highlight 0.3s ease;
+            }
+            
+            @keyframes highlight {
+                from { background-color: #fbbf24; }
+                to { background-color: #f59e0b; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeSearch();
+        initializeFilters();
+        addSearchAnimations();
+    });
+
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSearch();
+            initializeFilters();
+            addSearchAnimations();
+        });
+    } else {
+        initializeSearch();
+        initializeFilters();
+        addSearchAnimations();
+    }
+</script>

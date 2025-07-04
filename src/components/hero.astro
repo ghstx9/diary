@@ -1,0 +1,56 @@
+---
+import { MoonStar } from 'lucide-astro';
+---
+
+<main class="flex items-center justify-center min-h-screen pt-20">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+        <div class="w-32 h-32 flex items-center justify-center mx-auto mb-8">
+            <MoonStar class="w-16 h-16 text-gray-200" />
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 gradient-text">
+            a personal diary, yep. welcome
+        </h1>
+
+        <div class="text-gray-300 text-lg leading-relaxed space-y-4 mb-8">
+            <p>
+                this is where i share parts of my life that aren't public.
+                you also probably would see a lot of rants and ramblings.
+            </p>
+            
+            <p>
+                this site is not meant to be public, the purpose of this site
+                is to exercise my front-end skill and to make my own personal space to let out.
+            </p>
+            
+            <p>
+                but if you somehow found this, then congratulations. 
+            </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="#entries" class="bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 transform hover:scale-105">
+                latest entries
+            </a>
+            <a href="/entries" class="border border-gray-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-200 transform hover:scale-105">
+                all entries
+            </a>
+        </div>
+    </div>
+</main>
+
+<script>
+    // smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
