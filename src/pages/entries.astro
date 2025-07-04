@@ -84,14 +84,16 @@ const allEntries = [
                 {allEntries.length > 0 ? (
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {allEntries.map((entry) => (
-                            <DiaryCard 
-                                date={entry.date}
-                                title={entry.title}
-                                excerpt={entry.excerpt}
-                                readTime={entry.readTime}
-                                color={entry.color}
-                                slug={entry.slug}
-                            />
+                            <a href={`/entries/${entry.slug}`} class="group block">
+                                <DiaryCard 
+                                    date={entry.date}
+                                    title={entry.title}
+                                    excerpt={entry.excerpt}
+                                    readTime={entry.readTime}
+                                    color={entry.color}
+                                    slug={entry.slug}
+                                />
+                            </a>
                         ))}
                     </div>
                 ) : (
@@ -130,6 +132,25 @@ const allEntries = [
     <Footer />
 </Layout>
 
+<style>
+    .group:hover .diary-card {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .group:hover .diary-card .color-indicator {
+        transform: scale(1.1);
+    }
+    
+    .diary-card {
+        transition: all 0.3s ease;
+    }
+    
+    .color-indicator {
+        transition: transform 0.3s ease;
+    }
+</style>
+
 <script>
     interface Entry {
         element: HTMLElement;
@@ -143,7 +164,7 @@ const allEntries = [
         const entryCards = document.querySelectorAll('[data-entry]');
         return Array.from(entryCards).map(card => {
             return {
-                element: card as HTMLElement,
+                element: card.closest('a') as HTMLElement || card as HTMLElement,
                 title: card.querySelector('h3')?.textContent?.toLowerCase() || '',
                 excerpt: card.querySelector('p')?.textContent?.toLowerCase() || '',
                 date: card.querySelector('[data-date]')?.textContent?.toLowerCase() || '',
@@ -228,7 +249,7 @@ const allEntries = [
                 }, 300); // 300ms delay
             });
             
-            // cls on esc
+            // clear on escape
             searchInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     (searchInput as HTMLInputElement).value = '';
@@ -257,14 +278,12 @@ const allEntries = [
                     (e.target as HTMLElement).classList.remove('bg-gray-800', 'text-white', 'border', 'border-gray-700');
                     (e.target as HTMLElement).classList.add('bg-white', 'text-black');
                     
-                    
                     applyFilter(buttonText);
                 }
             });
         });
     }
 
-    
     function applyFilter(filterType: string) {
         const entries = getAllEntries();
         
@@ -276,7 +295,6 @@ const allEntries = [
                 break;
                 
             case 'Recent':
-                
                 const thirtyDaysAgo = new Date();
                 thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
                 
@@ -291,13 +309,11 @@ const allEntries = [
                 break;
                 
             case 'Popular':
-                
                 entries.forEach(entry => {
                     entry.element.style.display = 'block';
                 });
                 break;
         }
-        
         
         const searchInput = document.querySelector('input[type="text"]');
         if (searchInput) {
@@ -305,7 +321,7 @@ const allEntries = [
         }
     }
 
-    // smooth anim
+    // smooth animations
     function addSearchAnimations() {
         const style = document.createElement('style');
         style.textContent = `
@@ -336,14 +352,14 @@ const allEntries = [
         document.head.appendChild(style);
     }
 
-    
+    // initialize everything
     document.addEventListener('DOMContentLoaded', () => {
         initializeSearch();
         initializeFilters();
         addSearchAnimations();
     });
 
-    
+    // fallback for already loaded content
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initializeSearch();
