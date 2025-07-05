@@ -4,15 +4,15 @@ import Header from '~/components/header.astro';
 import Footer from '~/components/footer.astro';
 
 const entry = {
-    date: "4 July 2025",
-    title: "A Weird Friday",
-    readTime: "2 min read",
-    color: "green" as const,
-    slug: "a-weird-friday"
+    date: "30 June 2025",
+    title: "Midnight Thoughts",
+    readTime: "3 min read",
+    color: "blue" as const,
+    slug: "midnight-thoughts"
 };
 ---
 
-<Layout title="thefuckisthis" description="diary number one.">
+<Layout title="thefuckisthis" description="diary number two.">
     <Header currentPage="entries" />
     
     <main class="pt-20 min-h-screen bg-black">
@@ -53,7 +53,7 @@ const entry = {
                     
                     <!-- color indicator -->
                     <div class="flex justify-center mb-8">
-                        <div class={`w-3 h-3 rounded-full ${entry.color === 'green' ? 'bg-green-500' : entry.color === 'blue' ? 'bg-blue-500' : 'bg-purple-500'}`}></div>
+                        <div class={`w-3 h-3 rounded-full ${entry.color === 'blue' ? 'bg-blue-500' : entry.color === 'green' ? 'bg-green-500' : 'bg-purple-500'}`}></div>
                     </div>
                 </div>
             </div>
@@ -65,43 +65,47 @@ const entry = {
                 <div class="prose prose-invert prose-lg max-w-none">
                     <div class="text-gray-300 leading-relaxed space-y-6">
                         <p class="text-xl text-gray-200 font-light italic border-l-4 border-green-500 pl-6 py-2 bg-green-500/8">
-                            Today is Friday, so as a Muslim I went to the mosque to pray with my friends. After prayer we went to lunch and we went back to our homes, went home and just chilled for the rest of the day.
+                            Glass Animals said late nights in the middle of June, but I had my thoughts in late June, which was kinda weird. And that got me thinking why does Indie lyrics never relates to us?
                         </p>
                         
                         <p>
-                            But something felt off today. This is one of those weird days when something just feels off for me, but even then I played it cool. 
+                            Everybody knows about that hit song called "Heatwaves" by Glass Animals, and I got to say it is a fucking banger. And everybody knows about the infamous lyric: <i>"Late nights in the middle of June~"</i>
                         </p>
                         
                         <p>
-                            I mean who doesn't love a good old Islamic sabbath? In the morning I went for breakfast with my friends, did a prayer and then ate lunch on a McDonalds. But then out of nowhere I started to think about her again, and I can't get her out of my mind for the rest of the day.
+                            And I haven't talked to her for awhile, if the lyrics said in late June it would actually relates to my situation right now, kind of ironic huh?
                         </p>
                         
                         <p>
-                            I changed since that first date, or since I got too attached to her. But I don't think having your heart broken by someone means you feel a weird vibe every single day.
+                            Except at the moment I'm not really thinking about her at all. I'm currently thinking about the future in Software Engineering, you know I spent 2 months learning JavaScript frameworks such as Astro and React. If Web Development dies then it would be a really bummer for me, I invested so much time in learning this part of my life.
                         </p>
                         
                         <p>
-                            I've been heartbroken before, this is not my first breakup. I've broken up before, this is not my first heartbreak. But why does this one hits me so hard? I can't tell if it's either the regret of hurting her or the fact that I lost someone who I've had a crush on for years.
+                            And if we're talking future, we're talking about AI. I got thousands of ideas that I want to test with open-source LLMs, some of it itself is a million dollar idea if successful.
                         </p>
                         
                         <p>
-                            We're not even together and I'm still thinking about the delusional future I wish I could have with her. I'm not even together and I'm still thinking about the delusional future I wish I could have with her.
+                            Currently Anthropic is testing on using its LLM called Claudius to run a retail store, current ongoing results is that Claudius is destroying Anthropic vending machine which is really funny LOL.
                         </p>
                         
                         <p>
-                            And why do I act like this is the only instance of my day being weird? Ever since I stopped talking to her, my life immediately becomes weird. She's probably talking to another guy or became someone's girlfriend already, and yet I'm here making diaries on how fucked up my life is like a nerd.
+                            I couldn't help but imagine of making a similar or even the same test in my school but with open source LLMs like Gemma or LLaMA. But if we're being brutally honest, that idea won't go past review and would be immediately declined.
                         </p>
                         
                         <p>
-                            Maybe it's the semester break messing with my head. Maybe it's the fact I loved her too much to the point I wish I never met her. I used to laugh at my friends for being heartbrokens, but now when I experienced my own I don't know what to do.
+                            Making a generic SaaS products isn't the current wave of future in Software Engineering business. AI and LLMs are the future of SaaS, and that is just undeniable facts.
                         </p>
                         
                         <p>
-                            As I write this, it's midnight raining in the city and I can't play it cool anymore. This whole diary project that you're seeing right now? I've completed the entire layout design in just an hour and it's all fueled by the motivation of wanting to move on.
+                            I used to look down at myself for not utilizing the tools I have to build stuffs. I've changed for good, utilized a simple laptop to build amazing projects.
+                        </p>
+
+                        <p>
+                            Now I'm at the point where I want to level up my game by making my own LLM, but let's be honest that would never happen in a lifetime.
                         </p>
                         
                         <p class="text-gray-400 italic border-l-4 border-gray-600 pl-6 py-2 bg-gray-600/20">
-                            I was the one who rekindled the flame, and I'm the one who broke it. I wish that I hadn't done either.
+                            I wish I could become like Zuckerberg, but at this rate, it looks like I'll end up as Sohar Parekh.
                         </p>
                     </div>
                 </div>
@@ -114,8 +118,8 @@ const entry = {
                 <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                     <div class="text-center md:text-left">
                         <h3 class="text-white font-bold text-lg mb-2">Previous Entry</h3>
-                        <a href="/entries/midnight-thoughts" class="text-blue-400 hover:text-blue-300 transition-colors">
-                            Midnight Thoughts
+                        <a href="/entries/first-date" class="text-blue-400 hover:text-blue-300 transition-colors">
+                            First Date
                         </a>
                         <p class="text-gray-400 text-sm mt-1">30 June 2025</p>
                     </div>
@@ -129,10 +133,12 @@ const entry = {
                         </a>
                     </div>
                     
-                    <div class="text-center md:text-right opacity-50">
+                    <div class="text-center md:text-left">
                         <h3 class="text-white font-bold text-lg mb-2">Next Entry</h3>
-                        <span class="text-gray-500">No newer entries</span>
-                        <p class="text-gray-500 text-sm mt-1">—</p>
+                        <a href="/entries/a-weird-friday" class="text-blue-400 hover:text-blue-300 transition-colors">
+                            A Weird Friday
+                        </a>
+                        <p class="text-gray-400 text-sm mt-1">4 July 2025</p>
                     </div>
                 </div>
             </div>
@@ -147,33 +153,33 @@ const entry = {
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- related entry 1 -->
-                    <a href="/entries/midnight-thoughts" class="group block">
+                    <a href="/entries/first-date" class="group block">
                         <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-200 group-hover:transform group-hover:scale-105">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-3 h-3 rounded-full bg-blue-500"></div>
                                 <span class="text-gray-400 text-sm">30 June 2025</span>
                             </div>
                             <h3 class="text-white font-bold text-lg mb-2 group-hover:text-blue-400 transition-colors">
-                                Midnight Thoughts
+                                First Date
                             </h3>
                             <p class="text-gray-400 text-sm">
-                                Today marks the first day of our semester break, didn't really do anything because I just wanted to rest...
+                                Went to a date with this girl that I've always liked. Decided to rekindle the old flame we had...
                             </p>
                         </div>
                     </a>
                     
                     <!-- related entry 2 -->
-                    <a href="/entries/first-date" class="group block">
+                    <a href="/entries/a-weird-friday" class="group block">
                         <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-200 group-hover:transform group-hover:scale-105">
                             <div class="flex items-center gap-3 mb-4">
-                                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
                                 <span class="text-gray-400 text-sm">12 May 2025</span>
                             </div>
                             <h3 class="text-white font-bold text-lg mb-2 group-hover:text-purple-400 transition-colors">
-                                First Date
+                                A Weird Friday
                             </h3>
                             <p class="text-gray-400 text-sm">
-                                Went to a date with this girl that I've always liked. Decided to rekindle the old flame we had...
+                                Today is Friday, so as a Muslim I went to the mosque to pray with my friends. After prayer...
                             </p>
                         </div>
                     </a>
